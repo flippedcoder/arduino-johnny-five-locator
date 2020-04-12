@@ -2,9 +2,11 @@ const { Board, Led } = require("johnny-five");
 const cors = require("cors");
 const express = require("express");
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
-const server = app.listen(3000, () => {
-  console.log("endpoints running on port 3000");
+const server = app.listen(PORT, () => {
+  console.log(`endpoints running on port ${PORT}`);
 });
 
 app.use(cors());
