@@ -2,7 +2,8 @@
     "name": "flipped-coding",
     "version": "0.1.0",
     "scripts": {
-        "start": "concurrently --kill-others \"node --inspect ./server/index.js\" \"http-server\""
+        "build": "npm install && cd server && npm install",
+        "start": "npm run build && concurrently --kill-others \"node --inspect ./server/index.js\" \"http-server\""
     },
     "dependencies": {
         "concurrently": "^5.1.0"
