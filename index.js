@@ -7,10 +7,10 @@ window.onload = () => {
         isBeeperActivated = !isBeeperActivated;
 
         isBeeperActivated ? 
-        fetch('http://localhost:3000/api/startBeeper')
+        fetch('https://dog-locator396742.herokuapp.com/api/startBeeper')
             .then(res => console.log(res)) 
         :
-        fetch('http://localhost:3000/api/stopBeeper')
+        fetch('https://dog-locator396742.herokuapp.com/api/stopBeeper')
             .then(res => console.log(res)) ;
     }
 
