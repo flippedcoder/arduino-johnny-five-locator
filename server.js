@@ -5,9 +5,6 @@ const express = require("express");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-const server = app.listen(PORT, () => {
-  console.log(`endpoints running on port ${PORT}`);
-});
 
 app.use(cors());
 app.use(express.json());
@@ -25,7 +22,7 @@ board.on("ready", () => {
   beeper = new Led(13);
 });
 
-app.get("/api/startBeeper", (req, res) => {
+app.get("/api/startBeeper", (_req, res) => {
   console.log("on");
 
   beeper.on();
@@ -34,13 +31,17 @@ app.get("/api/startBeeper", (req, res) => {
   });
 });
 
-app.get("/api/stopBeeper", (req, res) => {
+app.get("/api/stopBeeper", (_req, res) => {
   console.log("off");
 
   beeper.off();
   res.send({
     message: "off",
   });
+});
+
+const server = app.listen(PORT, () => {
+  console.log(`endpoints running on port ${PORT}`);
 });
 
 module.exports = server;
