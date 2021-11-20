@@ -1,18 +1,19 @@
 window.onload = () => {
-    const beeperBtn = document.querySelector('#beeper-btn');
+  const beeperBtn = document.querySelector("#beeper-btn");
+  const beeperBtnOff = document.querySelector("#beeper-btn-ff");
 
-    let isBeeperActivated = false;
+  const toggleBeeper = () => {
+    fetch("http://localhost:3000/api/startBeeper").then((res) =>
+      console.log(res)
+    );
+  };
 
-    const toggleBeeper = () => {
-        isBeeperActivated = !isBeeperActivated;
+  const offBeeper = () => {
+    fetch("http://localhost:3000/api/stopBeeper").then((res) =>
+      console.log(res)
+    );
+  };
 
-        isBeeperActivated ? 
-        fetch('https://dog-locator396742.herokuapp.com/api/startBeeper')
-            .then(res => console.log(res)) 
-        :
-        fetch('https://dog-locator396742.herokuapp.com/api/stopBeeper')
-            .then(res => console.log(res)) ;
-    }
-
-    beeperBtn.addEventListener('click', toggleBeeper);
-}
+  beeperBtn.addEventListener("click", toggleBeeper);
+  beeperBtnOff.addEventListener("click", offBeeper);
+};

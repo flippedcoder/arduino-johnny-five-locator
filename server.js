@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const board = new Board({
-  port: "COM4",
+  port: "COM3",
 });
 
 let beeper;
